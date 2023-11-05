@@ -14,9 +14,6 @@ The project consists of five main modules:
 4. **receiver**: Demodulates the received signal and removes noise.
 5. **evaluator**: Evaluates the quality of the received audio and calculates metrics.
 
-## GitHub Repository
-
-For the complete implementation and code for this project, please visit our [GitHub repository](https://github.com/sr1nvs/AudioSim).
 
 ## Usage
 
