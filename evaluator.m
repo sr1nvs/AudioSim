@@ -9,13 +9,11 @@
 [denoised_audio_direct, ~] = audioread('files/denoised_audio_direct.wav');
 [denoised_audio_hilbert, ~] = audioread('files/denoised_audio_hilbert.wav');
 
-% Calculate SNR for all pairs
 snr_original_vs_recovered_direct = snr(y_digital, recovered_audio_direct);
 snr_original_vs_recovered_hilbert = snr(y_digital, recovered_audio_hilbert);
 snr_original_vs_denoised_direct = snr(y_digital, denoised_audio_direct);
 snr_original_vs_denoised_hilbert = snr(y_digital, denoised_audio_hilbert);
 
-% Display SNR results
 fprintf('SNR for Original vs Recovered (Direct Multiplication): %.2f dB\n', snr_original_vs_recovered_direct);
 fprintf('SNR for Original vs Recovered (Hilbert Transform): %.2f dB\n', snr_original_vs_recovered_hilbert);
 fprintf('SNR for Original vs Denoised (Direct Multiplication): %.2f dB\n', snr_original_vs_denoised_direct);

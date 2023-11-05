@@ -27,7 +27,7 @@ ylabel('Amplitude');
 
 % Compute the FFT of the audio signal
 L = length(audio_signal);  % Length of the signal
-N = 2^nextpow2(L);  % Next power of 2 from length of audio_signal
+N = 2^nextpow2(L); 
 f = fs/2 * linspace(0, 1, N/2+1);  % Frequency vector
 audio_fft = fft(audio_signal, N);
 audio_fft = 2*abs(audio_fft(1:N/2+1));

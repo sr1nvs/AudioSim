@@ -7,7 +7,7 @@ num_bits = 16;
 y_digital = round(y * (2^(num_bits-1)));
 
 % Create the time vector 't'
-t = (0:length(y)-1) / desired_fs;  % Assuming the signal starts at time 0
+t = (0:length(y)-1) / desired_fs;
 
 % Plot the original and quantized signals
 figure;

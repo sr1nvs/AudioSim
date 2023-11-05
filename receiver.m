@@ -14,7 +14,6 @@ received_signal_direct = transmitted_signal_direct_with_noise .* carrier';
 received_signal_hilbert = transmitted_signal_hilbert_with_noise .* carrier';
 
 % Apply Adaptive Noise Cancellation (ANC) using dsp.LMSFilter
-% Use the saved noise file
 [total_noise, fs] = audioread('files/total_noise.wav');
 
 % Choose an appropriate ANC algorithm (e.g., LMS)
@@ -33,16 +32,8 @@ anc_output_hilbert = anc_hilbert(received_signal_hilbert, total_noise);
 recovered_audio_direct = received_signal_direct - anc_output_direct;
 recovered_audio_hilbert = received_signal_hilbert - anc_output_hilbert;
 
-% Listen to or save the recovered audio
 audiowrite('files/recovered_audio_direct.wav', recovered_audio_direct, fs);
 audiowrite('files/recovered_audio_hilbert.wav', recovered_audio_hilbert, fs);
-
-% Define the wavelet denoising parameters
-wavelet_name = 'db4';  % Choose a wavelet type
-level = 5;  % Choose a wavelet decomposition level
-threshold_type = 'soft';  % Choose a threshold type ('soft' or 'hard')
-threshold_value = 0.02;  % Adjust the threshold value as needed
-
 
 % Apply wavelet denoising to the recovered audio signals
 denoised_audio_direct = wdenoise(recovered_audio_direct, 4);
